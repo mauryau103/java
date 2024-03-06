@@ -15,3 +15,18 @@ public class FirstProgram {
 //main return the starting point of the program
 //String[] args is used for command line argument.
 //System.out.println() -->it is used print statement.
+
+//--> if you executed the class file that does not exist, a NoClassDefFoundError will occur.
+//--> if you executed a class file that does not have a main method or you have typed a main method wrong like instead of main you have typed Main then NoSuchMethodError will occur.
+
+//********************************************Note*************************************************/
+
+/*
+ 
+Welcome.java(java source-code file)-->"compiled by"--> java compiler-->"generates"-->Welcome.class(javabytecode executable file)
+
+-->"executed by"-->JVM
+
+jab hum log java program ko pahle compile karte hai to java compiler code ko java bytecode me convert karta hai...now phir jab hum log use execute karte hai tab JVM load karta hai class ke bytecode ko memory me by using program called the class loader .and suppose apke class ke andar koi dusra class bhi call hua hai to class loader dynamically loads them when they are needed. and it execute accordingly
+ */
+
