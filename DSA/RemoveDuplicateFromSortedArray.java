@@ -1,5 +1,7 @@
 package DSA;
 
+import java.util.Arrays;
+
 /**
  * RemoveDuplicateFromSortedArray
  */
@@ -35,15 +37,16 @@ public class RemoveDuplicateFromSortedArray {
 
     public static int removeDuplicates(int[] nums) {
         int[] uniqueArray = new int[nums.length];
-
-        for(int i =0;i<nums.length;i++){
+        int index = 0;
+        for(int i =0;i<nums.length-1;i++){
             int curr = nums[i];
             int next = nums[i+1];
             if (curr != next) {
-                uniqueArray[0] = curr;
+                uniqueArray[index] = curr;
+                index++;
             }
-        }
-        System.out.println(uniqueArray);
+        } 
+        System.out.println(Arrays.toString(uniqueArray));
         return uniqueArray.length;
     }
 }
