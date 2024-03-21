@@ -4,26 +4,41 @@ import java.util.Stack;
 
 public class ValidParenthesis {
     public static void main(String[] args) {
-        System.out.println(isValid("(]"));
+        System.out.println(isValid("(])"));
     }
 
     public static boolean isValid(String s) {
         Stack<Character> stk = new Stack<>();
-        char[] chars = s.toCharArray();
 
-        for (int i = 0; i < chars.length; i++) {
-            if (stk.empty()){
-                stk.push(chars[i]);
-                continue;
-            }
-            
-            char par = stk.peek();
-            if (par == chars[i] || par == chars[i] || par == chars[i]) {
+        if (s.length() <= 1)
+            return false;
+
+        for (int i = 0; i < s.length(); i++) {
+
+            if (s.charAt(0) == ')' || s.charAt(0) == '}' || s.charAt(0) == ']')
                 return false;
+
+            if (s.charAt(i) == '(' || s.charAt(i) == '{' || s.charAt(i) == '[') {
+                stk.push(s.charAt(i));
             } else {
-                stk.push(chars[i]);
+                if (stk.isEmpty())
+                    return false;
+
+                char top = stk.peek();
+
+                if (top == '(' && s.charAt(i) == ')') {
+                    stk.pop();
+                } else if (top == '{' && s.charAt(i) == '}') {
+                    stk.pop();
+                } else if (top == '[' && s.charAt(i) == ']') {
+                    stk.pop();
+                } else
+                    return false;
             }
         }
-        return true;
+        if (stk.empty()) {
+            return true;
+        } else
+            return false;
     }
 }
