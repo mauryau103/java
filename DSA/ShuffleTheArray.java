@@ -9,6 +9,10 @@ import java.util.Arrays;
  * Output: [2,3,5,4,1,7]
  * Explanation: Since x1=2, x2=5, x3=1, y1=3, y2=4, y3=7 then the answer is
  * [2,3,5,4,1,7].
+ * Use two pointers to create the new array of 2n elements.
+ * The first starting at the beginning and the other starting at (n+1)th
+ * position.
+ * Alternate between them and create the new array.
  */
 public class ShuffleTheArray {
     public static void main(String[] args) {
@@ -18,10 +22,12 @@ public class ShuffleTheArray {
     }
 
     public static int[] shuffle(int[] nums, int n) {
-        int[] ans = new int[nums.length];
-        for (int i = 0; i < nums.length;) {
-            ans[i] = nums[i];
-            i=i+2;
+        int[] ans = new int[2 * n];
+        int count = 0;
+        for (int i = 0; i < n; i++) {
+            ans[count] = nums[i];
+            ans[count + 1] = nums[i + n];
+            count += 2;
         }
         return ans;
     }
