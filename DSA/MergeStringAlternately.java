@@ -1,3 +1,5 @@
+package DSA;
+
 public class MergeStringAlternately {
     // https://leetcode.com/problems/merge-strings-alternately/description/
     public static void main(String[] args) {
