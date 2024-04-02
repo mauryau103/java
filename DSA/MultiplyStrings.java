@@ -5,7 +5,7 @@ public class MultiplyStrings {
     public static void main(String[] args) {
         String num1 = "999";
         String num2 = "999";
-        System.out.println(multiply(num1, num2));
+        System.out.println(multiply2(num1, num2));
     }
 
     public static String multiply(String num1, String num2) {
@@ -86,4 +86,28 @@ public class MultiplyStrings {
         }
         return str.reverse().toString();
     }
+
+    public static String multiply2(String num1, String num2) {
+        int m = num1.length();
+        int n = num2.length();
+        int[] vals = new int[m + n];
+
+        for (int i = m - 1; i >= 0; --i) {
+            for (int j = n - 1; j >= 0; --j) {
+                int mul = (num1.charAt(i) - '0') * (num2.charAt(j) - '0');
+                int sum = vals[i + j + 1] + mul;
+                vals[i + j] += sum / 10;
+                vals[i + j + 1] = sum % 10;
+            }
+        }
+        StringBuilder sb = new StringBuilder();
+        for (int val : vals) {
+            if (sb.length() != 0 || val != 0) {
+                sb.append(val);
+            }
+        }
+        return sb.length() == 0 ? "0" : sb.toString();
+
+    }
+
 }
