@@ -1,6 +1,7 @@
 package DSA;
 
 //https://leetcode.com/problems/add-binary/description/
+//done
 public class AddBinary {
     public static void main(String[] args) {
         String a = "11";
